@@ -1,0 +1,35 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import NavBar from "../components/NavBar.astro";
+
+import '../styles/global.css'
+const { titulo } = Astro.props
+interface Props {
+	titulo: string
+}
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{ titulo }</title>
+		<ViewTransitions />
+	</head>
+	<body>
+		
+      <NavBar />
+			<main class="container mx-auto p-4">
+			<slot />
+    </main>
+	</body>
+</html>
+<style>
+	body {
+		@apply bg-slate-300 text-3xl;
+		font-family: 'Atkinson', sans-serif;
+
+	}
+</style>

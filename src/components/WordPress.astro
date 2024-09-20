@@ -1,0 +1,14 @@
+---
+const res = await fetch("https://retinadevel.wpengine.com/wp-json/wp/v2/posts?_fields=author,id,excerpt,title,link");
+const posts = await res.json();
+console.log( posts )
+---
+
+<h1>Astro + WordPress 🚀</h1>
+{
+  posts.map((post: any) => (
+  <h1 class="bg-sky-400 m-4 p-8 text-4xl" set:html={post.title.rendered} />
+      <h4 class="bg-sky-400 text-md m-4 p-8 " set:html={post.excerpt.rendered} />
+      
+  ))
+}
